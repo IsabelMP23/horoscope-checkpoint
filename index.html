@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="src/img/moon-01.webp">
+    <link rel="stylesheet" href="style.css" />
+    <title>Horoscope</title>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+      <section class="title">
+        <img src="src/img/moon-01.webp" alt="moon" />
+        <h1>Horoscope</h1>
+      </section>
+
+      <section class="form" id="form">
+        <div class="selector">
+          <label for="select_sign">Select your sign</label>
+          <select name="select_sign" id="sign">
+            <option value="Leo">Leo</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aries">Aries</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+          </select>
+          <button onclick="getSign()">Send</button>
+        </div>
+
+        <span class="divisor">OR</span>
+
+        <div class="date">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="120"
+            height="120"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#cf8c32"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"
+            />
+            <path d="M16 3v4" />
+            <path d="M8 3v4" />
+            <path d="M4 11h16" />
+            <path d="M11 15h1" />
+            <path d="M12 15v3" />
+          </svg>
+          <div class="inputs">
+            <label for="date">Select your birthday</label>
+            <div class="inputs-group">
+              <input type="date" id="date" />
+              <button onclick="getDate()">Send</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info fade-out" id="sign-info">
+        <div class="signImg">
+          <img
+            id="sign-img"
+            src="https://www.horoscope.com/images-US/signs/profile-capricorn.png"
+            alt=""
+          />
+        </div>
+
+        <div class="info-box">
+          <div class="characteristics">
+            <div>
+              <span id="symbol"></span>
+              <p id="name"></p>
+            </div>
+
+            <p id="date-sign"></p>
+          </div>
+          <p id="message"></p>
+
+          <button id="back-btn">Back</button>
+        </div>
+  
+      </section>
+    </div>
+
+    <script src="particles.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
