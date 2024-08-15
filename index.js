@@ -25,7 +25,7 @@ const signs = [
     name: "Aries",
     date: "March 21 - April 19",
     symbol: "♈︎",
-    image: "src/img/Aries.png", 
+    image: "src/img/Aries.png",
   },
   {
     name: "Taurus",
@@ -39,7 +39,7 @@ const signs = [
     symbol: "♊︎",
     image: "src/img/Gemini.png",
   },
- {
+  {
     name: "Cancer",
     date: "June 21 - July 22",
     element: "Water",
@@ -57,7 +57,8 @@ const signs = [
     date: "August 23 - September 22",
     symbol: "♍︎",
     image: "src/img/Virgo.png",
-  },{
+  },
+  {
     name: "Libra",
     date: "September 23 - October 22",
     symbol: "♎︎",
@@ -109,13 +110,26 @@ let sign = "";
 function getSign() {
   sign = document.getElementById("sign").value;
 
-  showMessage();
+  if (sign === "") {
+    alert("Please select your sign.");
+  } else {
+    showMessage();
+  }
 }
 
 function getDate() {
   const date = document.getElementById("date").value;
-  const [year, month, day] = date.split("-");
 
+  if (date === "") {
+    alert("Please select your birthday.");
+  } else {
+    const [year, month, day] = dateElement.split("-");
+    determineSign(month, day);
+    showMessage();
+  }
+}
+
+function determineSign(month, day) {
   if ((month === "12" && day >= 22) || (month === "01" && day <= 19)) {
     sign = "Capricorn";
   } else if ((month === "01" && day >= 20) || (month === "02" && day <= 18)) {
@@ -145,8 +159,7 @@ function getDate() {
   showMessage();
 }
 
-
-function getSignInfo(sign, message){
+function getSignInfo(sign, message) {
   imgSing.src = sign.image;
   symbol.textContent = sign.symbol;
   nameSing.textContent = sign.name;
@@ -154,24 +167,19 @@ function getSignInfo(sign, message){
   messageHoroscope.textContent = message;
 
   backBtn.addEventListener("click", () => {
-
     divInfo.classList.add("fade-out");
     setTimeout(() => {
       divForm.style.display = "block";
       divForm.classList.remove("fade-out");
-    }
-    , 500);
-
-
+    }, 500);
   });
-
 }
 
 function showMessage() {
   if (sign !== "") {
     let randomIndex = Math.floor(Math.random() * message.length);
     let horoscope = message[randomIndex];
-    
+
     let signInfo = signs.find((element) => element.name === sign);
 
     getSignInfo(signInfo, horoscope);
@@ -179,10 +187,9 @@ function showMessage() {
     divForm.classList.add("fade-out");
 
     setTimeout(() => {
-     divForm.style.display = "none";
-     divInfo.classList.add("fade-in");
-     divInfo.classList.remove("fade-out");
+      divForm.style.display = "none";
+      divInfo.classList.add("fade-in");
+      divInfo.classList.remove("fade-out");
     }, 500);
-
   }
 }
