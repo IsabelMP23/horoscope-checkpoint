@@ -124,13 +124,13 @@ function getDate() {
   if (date === "") {
     alert("Please select your birthday.");
   } else {
-    const [year, month, day] = dateElement.split("-");
+    const [year, month, day] = date.split("-");
     determineSign(month, day);
-    showMessage();
   }
 }
 
 function determineSign(month, day) {
+
   if ((month === "12" && day >= 22) || (month === "01" && day <= 19)) {
     sign = "Capricorn";
   } else if ((month === "01" && day >= 20) || (month === "02" && day <= 18)) {
