@@ -1,4 +1,5 @@
-//Particules JS
+// Particles.js © 2015 Vincent Garreau
+// Licensed under the MIT License (MIT)
 fetch("particlesjs-config.json")
   .then((response) => response.json())
   .then((config) => {
